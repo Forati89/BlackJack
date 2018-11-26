@@ -1,0 +1,36 @@
+body {
+    background: black;
+}
+.container{
+    padding-top: 5%;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    vertical-align: middle;
+}
+#houseRow {
+background-color: green;
+text-align: left;
+padding-top: 2%;
+padding-bottom: 2%;
+min-height: 100px;
+vertical-align: top;
+width: 150%;
+}
+#space {
+    background-size: cover;
+    height: 100px;
+    background-color: black;
+    width: 100%;
+}
+#playerRow{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: green;
+    min-height: 100px;
+    vertical-align: bottom;
+    width: 100%;
+}
+h5 {
+    color: white;
+}
