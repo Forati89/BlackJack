@@ -68,8 +68,13 @@ const Deck =  [
 
 const node = Deck[8].imgFile; 
 console.log(Deck);
-function test(){
-    document.getElementById('srctest').src= node;
-    document.getElementById('srctest2').src= node;
+function test(imgFile){
+/*     document.getElementById('srctest').src= node;
+    document.getElementById('srctest2').src= node; */
+
+    const createCard= document.createElement('img');
+    createCard.setAttribute('src', imgFile);
+    document.getElementById("houseRow").appendChild(createCard);
 };
-test();
+test('img/17.png');
+test('img/19.png');

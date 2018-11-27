@@ -5,6 +5,18 @@ html body {
     overflow: hidden;
     margin: 0;
 }
+
+
+#buttons{
+text-align: center;
+padding: 2%;
+}
+
+button-grp, a{
+    color:white;
+    background: red;
+}
+
 .container{
     padding-top: 5%;
     width: 100%;
