@@ -65,16 +65,79 @@ const Deck =  [
     {type: 'TEN', name: 'Clubs10', value1: 10 , value2: null , imgFile: 'img/19.png'},
     {type: 'TEN', name: 'Diamond10', value1: 10 , value2: null , imgFile: 'img/20.png'},
 ];
+const HouseHolds = {
+    point: null,
+    cards: [],
+    numberOfCards: null
+};
+const PlayerHolds = {
+    point: null,
+    cards: [],
+    numberOfCards: null
+    
+};
+console.log(PlayerHolds.cards);
 
 const node = Deck[8].imgFile; 
 console.log(Deck);
-function test(imgFile){
+function test(imgFile, row){
 /*     document.getElementById('srctest').src= node;
     document.getElementById('srctest2').src= node; */
 
     const createCard= document.createElement('img');
     createCard.setAttribute('src', imgFile);
-    document.getElementById("houseRow").appendChild(createCard);
+    document.getElementById(row).appendChild(createCard);
 };
-test('img/17.png');
-test('img/19.png');
+let counter = 1;
+function start(){
+    if (counter < 2){
+        counter++
+        window.setTimeout(start, 1000);
+    }
+    play();
+}
+function play(){
+    randomPick(PlayerHolds);
+    randomPick(HouseHolds);
+    const playerWon = false;
+    const houseWon = false;
+    if(HouseHolds.point > 21){
+        houseWon = false;
+    }
+    if(PlayerHolds.numberOfCards  >= 2 && PlayerHolds.point  <= 21 && HouseHolds.point < PlayerHolds.point){
+        if(PlayerHolds.point > 21){
+            playerWon = false;
+            houseWon = true;
+            
+        }
+        playerWon === true;
+        alert( "Congrats You Win!");
+    }
+    if(HouseHolds.numberOfCards  >= 2 && HouseHolds.point  <= 21 && PlayerHolds.point < HouseHolds.point){
+        if(HouseHolds.point > 21){
+            houseWon = false;
+            playerWon = true;
+        }
+        houseWon === true;
+
+        alert( "Game Over, Good luck next time!");
+    }
+
+}
+function randomPick(toWhom){
+    var randomCard = Deck[Math.floor(Math.random()*Deck.length)];
+
+    const cardImg =  randomCard.imgFile;
+    toWhom.numberOfCards = toWhom.numberOfCards + 1
+    toWhom.point = toWhom.point + randomCard.value1 + randomCard.value2;
+    toWhom.cards = toWhom.cards + "," + randomCard.type;
+    if(toWhom === PlayerHolds){
+        test(cardImg, "playerRow");
+    }
+    if(toWhom === HouseHolds){
+        test(cardImg, "houseRow");
+    }
+
+}
+
+
